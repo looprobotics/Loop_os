@@ -1,0 +1,124 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Red, Blue, Yellow, White - Light Theme */
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 20% 15%; /* Very Dark Blue-Gray (for text on white) */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 220 20% 15%; 
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 210 100% 50%; /* Strong Blue */
+    --primary-foreground: 0 0% 100%; /* White (text on primary blue) */
+
+    --secondary: 210 60% 95%; /* Very Light Blue-Gray */
+    --secondary-foreground: 210 50% 25%; /* Darker Blue-Gray */
+
+    --muted: 210 60% 90%; /* Light Blue-Gray */
+    --muted-foreground: 210 40% 50%; /* Medium Blue-Gray Text */
+
+    --accent: 50 100% 50%; /* Vibrant Yellow */
+    --accent-foreground: 50 100% 10%; /* Dark (almost black) for text on yellow */
+
+    --destructive: 0 100% 50%; /* Vibrant Red */
+    --destructive-foreground: 0 0% 100%; /* White (text on red) */
+
+    --border: 210 40% 85%; /* Light Blue-Gray Border */
+    --input: 210 40% 90%; /* Light Blue-Gray Input Background */
+    --ring: 210 100% 50%; /* Strong Blue for rings */
+
+    --chart-1: 210 100% 50%; /* Blue */
+    --chart-2: 0 100% 50%;   /* Red */
+    --chart-3: 50 100% 50%;  /* Yellow */
+    --chart-4: 0 0% 70%;     /* Medium Gray */
+    --chart-5: 200 80% 70%; /* Lighter Blue */
+    --radius: 0.5rem;
+
+    /* Sidebar colors (Light Theme - RBYW) */
+    --sidebar-background: 0 0% 98%;       /* Off-White, almost pure white */
+    --sidebar-foreground: 220 20% 20%;       /* Dark Blue-Gray text */
+    --sidebar-primary: 210 100% 50%;        /* Blue (same as main primary) */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 0 100% 50%;           /* Red (for hover/active) */
+    --sidebar-accent-foreground: 0 0% 100%;  /* White */
+    --sidebar-border: 210 40% 88%;          /* Light blue-gray border */
+    --sidebar-ring: 210 100% 50%;           /* Blue */
+
+    /* Futuristic background for light theme - RBYW inspired */
+    --futuristic-background: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 60% 97%) 40%, hsl(50 100% 95%) 100%);
+  }
+
+  .dark {
+    /* Red, Blue, Yellow, White - Dark Theme */
+    --background: 220 40% 8%; /* Very Dark Blue */
+    --foreground: 0 0% 95%; /* Light Gray/Off-White */
+
+    --card: 220 40% 12%; /* Slightly Lighter Dark Blue */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 40% 10%; /* Darker Popover */
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 210 100% 60%; /* Bright Blue */
+    --primary-foreground: 220 40% 10%; /* Dark Blue text on primary */
+
+    --secondary: 220 30% 20%; /* Medium Dark Blue */
+    --secondary-foreground: 0 0% 80%; /* Light Cool Gray */
+
+    --muted: 220 30% 15%; /* Darker Muted Blue */
+    --muted-foreground: 0 0% 60%; /* Medium Light Cool Gray */
+
+    --accent: 50 100% 60%; /* Brighter Yellow */
+    --accent-foreground: 50 100% 10%; /* Dark (almost black) for text on yellow */
+
+    --destructive: 0 100% 60%; /* Brighter Red */
+    --destructive-foreground: 0 0% 100%; /* White text on red for destructive in dark mode */
+
+    --border: 220 30% 25%; /* Medium Dark Blue Border */
+    --input: 220 30% 20%; /* Medium Dark Blue Input */
+    --ring: 50 100% 60%; /* Brighter Yellow for rings */
+    
+    --chart-1: 210 100% 60%; /* Blue */
+    --chart-2: 0 100% 60%;   /* Red */
+    --chart-3: 50 100% 60%;  /* Yellow */
+    --chart-4: 0 0% 50%;     /* Darker Gray */
+    --chart-5: 200 80% 80%; /* Lighter Blue */
+
+    /* Sidebar colors (Dark Theme - RBYW) */
+    --sidebar-background: 220 40% 10%;       /* Darker Blue than main bg */
+    --sidebar-foreground: 0 0% 90%;       /* Light Cool Gray text */
+    --sidebar-primary: 210 100% 60%;        /* Blue (same as main primary) */
+    --sidebar-primary-foreground: 220 40% 10%;/* Dark Blue text on primary */
+    --sidebar-accent: 0 100% 60%;           /* Red (for hover/active) */
+    --sidebar-accent-foreground: 0 0% 100%; /* White text on red */
+    --sidebar-border: 220 30% 20%;          /* Medium Dark Blue Border */
+    --sidebar-ring: 50 100% 60%;             /* Yellow Ring for contrast */
+
+    /* Futuristic background for dark theme - RBYW inspired */
+    --futuristic-background: linear-gradient(135deg, hsl(220, 40%, 6%) 0%, hsl(230, 35%, 10%) 30%, hsl(50, 40%, 8%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+    background-image: var(--futuristic-background);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
