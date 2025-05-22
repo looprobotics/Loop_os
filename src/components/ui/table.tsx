@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1de5aaa (Initial commit)
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -20,7 +24,11 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
+<<<<<<< HEAD
   <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+=======
+  <thead ref={ref} className={cn("", className)} {...props} /> // Removed [&_tr]:border-b
+>>>>>>> 1de5aaa (Initial commit)
 ))
 TableHeader.displayName = "TableHeader"
 
@@ -43,7 +51,11 @@ const TableFooter = React.forwardRef<
   <tfoot
     ref={ref}
     className={cn(
+<<<<<<< HEAD
       "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+=======
+      "bg-muted/50 font-medium [&>tr]:last:border-b-0", // Removed border-t
+>>>>>>> 1de5aaa (Initial commit)
       className
     )}
     {...props}
@@ -58,7 +70,11 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
+<<<<<<< HEAD
       "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+=======
+      "transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted", // Removed border-b
+>>>>>>> 1de5aaa (Initial commit)
       className
     )}
     {...props}

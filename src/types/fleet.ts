@@ -6,6 +6,14 @@ export interface Robot {
   status: 'Active' | 'Charging' | 'Idle' | 'Error' | 'Maintenance';
   location: string;
   currentMissionId?: string;
+<<<<<<< HEAD
+=======
+  pastLocations?: string[];
+  warehouseSectionId?: string; // New property
+  palletDetectCount?: number;
+  avgConfidence?: number; // Percentage 0-100
+  nearestDistance?: number; // in meters
+>>>>>>> 1de5aaa (Initial commit)
 }
 
 export interface Task {
@@ -16,6 +24,10 @@ export interface Task {
   status: 'Pending' | 'In Progress' | 'Completed' | 'Failed';
   locationFrom?: string;
   locationTo?: string;
+<<<<<<< HEAD
+=======
+  warehouseSectionId?: string; // New property
+>>>>>>> 1de5aaa (Initial commit)
 }
 
 export interface SystemAlert {
@@ -25,3 +37,7 @@ export interface SystemAlert {
   timestamp: Date;
   acknowledged: boolean;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1de5aaa (Initial commit)

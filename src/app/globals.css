@@ -34,8 +34,13 @@ body {
     --destructive: 0 100% 50%; /* Vibrant Red */
     --destructive-foreground: 0 0% 100%; /* White (text on red) */
 
+<<<<<<< HEAD
     --border: 210 40% 85%; /* Light Blue-Gray Border */
     --input: 210 40% 90%; /* Light Blue-Gray Input Background */
+=======
+    --border: 0 0% 100%; /* Transparent border (matches background) */
+    --input: 0 0% 100%; /* Transparent input border (matches background) */
+>>>>>>> 1de5aaa (Initial commit)
     --ring: 210 100% 50%; /* Strong Blue for rings */
 
     --chart-1: 210 100% 50%; /* Blue */
@@ -52,7 +57,11 @@ body {
     --sidebar-primary-foreground: 0 0% 100%; /* White */
     --sidebar-accent: 0 100% 50%;           /* Red (for hover/active) */
     --sidebar-accent-foreground: 0 0% 100%;  /* White */
+<<<<<<< HEAD
     --sidebar-border: 210 40% 88%;          /* Light blue-gray border */
+=======
+    --sidebar-border: 0 0% 98%;          /* Transparent sidebar border (matches sidebar background) */
+>>>>>>> 1de5aaa (Initial commit)
     --sidebar-ring: 210 100% 50%;           /* Blue */
 
     /* Futuristic background for light theme - RBYW inspired */
@@ -85,8 +94,13 @@ body {
     --destructive: 0 100% 60%; /* Brighter Red */
     --destructive-foreground: 0 0% 100%; /* White text on red for destructive in dark mode */
 
+<<<<<<< HEAD
     --border: 220 30% 25%; /* Medium Dark Blue Border */
     --input: 220 30% 20%; /* Medium Dark Blue Input */
+=======
+    --border: 220 40% 8%; /* Transparent border (matches background) */
+    --input: 220 40% 8%; /* Transparent input border (matches background) */
+>>>>>>> 1de5aaa (Initial commit)
     --ring: 50 100% 60%; /* Brighter Yellow for rings */
     
     --chart-1: 210 100% 60%; /* Blue */
@@ -102,7 +116,11 @@ body {
     --sidebar-primary-foreground: 220 40% 10%;/* Dark Blue text on primary */
     --sidebar-accent: 0 100% 60%;           /* Red (for hover/active) */
     --sidebar-accent-foreground: 0 0% 100%; /* White text on red */
+<<<<<<< HEAD
     --sidebar-border: 220 30% 20%;          /* Medium Dark Blue Border */
+=======
+    --sidebar-border: 220 40% 10%;          /* Transparent sidebar border (matches sidebar background) */
+>>>>>>> 1de5aaa (Initial commit)
     --sidebar-ring: 50 100% 60%;             /* Yellow Ring for contrast */
 
     /* Futuristic background for dark theme - RBYW inspired */
@@ -111,9 +129,15 @@ body {
 }
 
 @layer base {
+<<<<<<< HEAD
   * {
     @apply border-border;
   }
+=======
+  /* * {
+    @apply border-border; // Removed global border application
+  } */
+>>>>>>> 1de5aaa (Initial commit)
   body {
     @apply text-foreground;
     background-image: var(--futuristic-background);

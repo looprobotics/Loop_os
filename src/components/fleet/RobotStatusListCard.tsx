@@ -10,10 +10,21 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+<<<<<<< HEAD
 import { useTasks } from '@/context/TasksContext'; // Import useTasks to get robots
 
 const INITIAL_DISPLAY_COUNT = 3;
 
+=======
+
+const INITIAL_DISPLAY_COUNT = 3;
+
+interface RobotStatusListCardProps {
+  robots: Robot[]; // Expect filtered robots
+  selectedWarehouseSection?: string; // For context in dialog if needed, though dialog will use filtered robots
+}
+
+>>>>>>> 1de5aaa (Initial commit)
 function getBatteryIcon(batteryLevel: number) {
   if (batteryLevel > 70) return <BatteryFull className="h-5 w-5 text-green-500" />;
   if (batteryLevel > 30) return <BatteryMedium className="h-5 w-5 text-yellow-500" />;
@@ -43,9 +54,15 @@ function getStatusIcon(status: Robot['status']) {
 }
 
 
+<<<<<<< HEAD
 export function RobotStatusListCard() {
   const { robots } = useTasks(); // Get robots from context
   const displayedRobots = robots.slice(0, INITIAL_DISPLAY_COUNT);
+=======
+export function RobotStatusListCard({ robots, selectedWarehouseSection }: RobotStatusListCardProps) {
+  const displayedRobots = robots.slice(0, INITIAL_DISPLAY_COUNT);
+  const showViewAllButton = robots.length > INITIAL_DISPLAY_COUNT;
+>>>>>>> 1de5aaa (Initial commit)
 
   return (
     <Dialog>
@@ -55,7 +72,11 @@ export function RobotStatusListCard() {
             <Bot className="h-6 w-6 text-primary" />
             <CardTitle className="text-lg font-semibold text-primary">Robot Fleet Status</CardTitle>
           </div>
+<<<<<<< HEAD
           {robots.length > INITIAL_DISPLAY_COUNT && (
+=======
+          {showViewAllButton && (
+>>>>>>> 1de5aaa (Initial commit)
             <DialogTrigger asChild>
               <Button variant="ghost" size="sm">
                 View All
@@ -67,9 +88,16 @@ export function RobotStatusListCard() {
         <CardContent className="flex-grow overflow-hidden">
           <ScrollArea className="h-full pr-3">
             {robots.length === 0 ? (
+<<<<<<< HEAD
               <p className="text-sm text-muted-foreground text-center py-4">No robots in the fleet.</p>
             ) : (
               <ul className="space-y-4">
+=======
+              <p className="text-sm text-muted-foreground text-center py-4">No robots in selected section.</p>
+            ) : (
+              <ul className="space-y-4">
+                {/* Display either initially sliced list or all if less than count */}
+>>>>>>> 1de5aaa (Initial commit)
                 {(displayedRobots.length > 0 ? displayedRobots : robots).map((robot) => (
                   <li key={robot.id} className="p-3 bg-card border rounded-lg shadow-sm hover:bg-secondary/30 transition-colors">
                     <div className="flex items-center justify-between mb-2">
@@ -100,11 +128,19 @@ export function RobotStatusListCard() {
       </Card>
       <DialogContent className="sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px]">
         <DialogHeader>
+<<<<<<< HEAD
           <DialogTitle className="text-xl text-primary">All Robot Fleet Status</DialogTitle>
         </DialogHeader>
         <ScrollArea className="h-[60vh] md:h-[70vh] pr-4">
           {robots.length === 0 ? (
              <p className="text-sm text-muted-foreground text-center py-4">No robots in the fleet.</p>
+=======
+          <DialogTitle className="text-xl text-primary">All Robot Fleet Status (Filtered)</DialogTitle>
+        </DialogHeader>
+        <ScrollArea className="h-[60vh] md:h-[70vh] pr-4">
+          {robots.length === 0 ? ( // This 'robots' is the filtered list passed as prop
+             <p className="text-sm text-muted-foreground text-center py-4">No robots in the selected section.</p>
+>>>>>>> 1de5aaa (Initial commit)
           ) : (
             <ul className="space-y-4 py-4">
               {robots.map((robot) => (

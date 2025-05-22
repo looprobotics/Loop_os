@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1de5aaa (Initial commit)
 "use client"
 
 import * as React from "react"
@@ -18,7 +22,11 @@ const Separator = React.forwardRef<
       decorative={decorative}
       orientation={orientation}
       className={cn(
+<<<<<<< HEAD
         "shrink-0 bg-border",
+=======
+        "shrink-0 bg-transparent", // Changed bg-border to bg-transparent
+>>>>>>> 1de5aaa (Initial commit)
         orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
         className
       )}

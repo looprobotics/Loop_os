@@ -8,7 +8,26 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
+<<<<<<< HEAD
 import { Gamepad2, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, CircleDot, RotateCcw, RotateCw, Video, TrendingUp, Forklift, MoveVertical, Plus, Minus } from 'lucide-react';
+=======
+import {
+  Gamepad2,
+  ArrowUp,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  CircleDot,
+  RotateCcw,
+  RotateCw,
+  Video,
+  TrendingUp,
+  MoveVertical,
+  Plus,
+  Minus,
+  OctagonAlert,
+} from 'lucide-react';
+>>>>>>> 1de5aaa (Initial commit)
 import { cn } from '@/lib/utils';
 
 // Mock data for robot selection
@@ -24,14 +43,21 @@ const SLIDER_ADJUST_STEP = 1;
 const SLIDER_MIN = 0;
 const SLIDER_MAX = 100;
 
+<<<<<<< HEAD
 // A short, looping placeholder video URL
 const DEMO_VIDEO_URL = "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4";
 
+=======
+>>>>>>> 1de5aaa (Initial commit)
 export function RobotControllerCard() {
   const [selectedRobotId, setSelectedRobotId] = useState<string | undefined>();
   const [forkHeight, setForkHeight] = useState(0); // 0-100%
   const [currentSpeed, setCurrentSpeed] = useState(50); // 0-100%
+<<<<<<< HEAD
   const [forkExtension, setForkExtension] = useState(0); // 0-100%
+=======
+
+>>>>>>> 1de5aaa (Initial commit)
 
   const handleControlClick = (control: string) => {
     if (!selectedRobotId) return;
@@ -40,7 +66,11 @@ export function RobotControllerCard() {
   };
 
   const updateSliderValue = (
+<<<<<<< HEAD
     type: 'forkHeight' | 'speed' | 'forkExtension',
+=======
+    type: 'forkHeight' | 'speed',
+>>>>>>> 1de5aaa (Initial commit)
     setter: React.Dispatch<React.SetStateAction<number>>,
     currentValue: number,
     change: number
@@ -51,7 +81,11 @@ export function RobotControllerCard() {
     console.log(`${type} set to: ${newValue}% for robot ${selectedRobotId}`);
   };
 
+<<<<<<< HEAD
   const handleSliderChange = (type: 'forkHeight' | 'speed' | 'forkExtension', value: number[]) => {
+=======
+  const handleSliderChange = (type: 'forkHeight' | 'speed', value: number[]) => {
+>>>>>>> 1de5aaa (Initial commit)
     if (!selectedRobotId) return;
     const singleValue = value[0];
     switch (type) {
@@ -63,15 +97,26 @@ export function RobotControllerCard() {
         setCurrentSpeed(singleValue);
         console.log(`Speed set to: ${singleValue}% for robot ${selectedRobotId}`);
         break;
+<<<<<<< HEAD
       case 'forkExtension':
         setForkExtension(singleValue);
         console.log(`Fork extension set to: ${singleValue}% for robot ${selectedRobotId}`);
         break;
+=======
+>>>>>>> 1de5aaa (Initial commit)
     }
   };
 
   const selectedRobot = mockRobots.find(r => r.id === selectedRobotId);
 
+<<<<<<< HEAD
+=======
+  const directionalButtonBaseClasses = "w-full h-full flex items-center justify-center text-sm md:text-base";
+  const lightModeDirectionalButtonColorClasses = "bg-muted border-muted hover:bg-secondary hover:text-secondary-foreground";
+  const darkModeDirectionalButtonColorClasses = "dark:bg-background dark:border-input dark:hover:bg-accent dark:hover:text-accent-foreground";
+
+
+>>>>>>> 1de5aaa (Initial commit)
   return (
     <Card className={cn("shadow-lg", "hover:shadow-xl hover:scale-[1.02] hover:border-accent transition-all duration-300 ease-in-out")}>
       <CardHeader className="flex flex-row items-center space-x-2">
@@ -79,7 +124,11 @@ export function RobotControllerCard() {
         <CardTitle className="text-lg font-semibold text-primary">Robot Controller</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6 p-4 md:p-6">
+<<<<<<< HEAD
         {/* Robot Selection Dropdown */}
+=======
+        {/* Robot Selection Dropdown - Top */}
+>>>>>>> 1de5aaa (Initial commit)
         <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
             <Label htmlFor="robot-select-controller" className="text-sm font-medium text-muted-foreground mb-1 block">Select Robot to Control & View</Label>
             <Select value={selectedRobotId} onValueChange={setSelectedRobotId}>
@@ -99,6 +148,7 @@ export function RobotControllerCard() {
         {/* Top Part: Camera and Directional Controls */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* Camera View Area (Left) */}
+<<<<<<< HEAD
           <div className="md:w-3/5">
             <div className="aspect-video w-full bg-muted rounded-md overflow-hidden relative min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] shadow-inner">
               {selectedRobotId && selectedRobot ? (
@@ -124,11 +174,32 @@ export function RobotControllerCard() {
                   <Video size={48} className="mb-2" />
                   <p>Select a robot to view camera feed</p>
                 </div>
+=======
+          <div className="md:w-7/12">
+            <div className="aspect-video w-full bg-muted rounded-md overflow-hidden relative min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] shadow-inner">
+              {!selectedRobotId ? (
+                 <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground">
+                  <Video className="h-16 w-16 mb-2" />
+                  <p>Select a robot to view camera feed</p>
+                </div>
+              ) : (
+                <video
+                  key={selectedRobotId}
+                  src="/videos/v2.mp4" 
+                  className="w-full h-full object-cover rounded-md"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  data-ai-hint="warehouse robot camera"
+                />
+>>>>>>> 1de5aaa (Initial commit)
               )}
             </div>
           </div>
 
           {/* Directional Controls Panel (Right) */}
+<<<<<<< HEAD
           <div className="md:w-2/5 flex flex-col items-center justify-center">
             <div className={`grid grid-cols-3 gap-2 md:gap-3 w-full max-w-xs p-3 md:p-4 bg-secondary/30 rounded-lg shadow-md ${!selectedRobotId ? 'opacity-60 cursor-not-allowed' : ''}`}>
               <Button variant="outline" className="aspect-square h-auto" onClick={() => handleControlClick('rotate-left')} aria-label="Rotate Left" disabled={!selectedRobotId}>
@@ -148,22 +219,110 @@ export function RobotControllerCard() {
                 <CircleDot size={28} />
               </Button>
               <Button variant="outline" className="aspect-square h-auto" onClick={() => handleControlClick('right')} aria-label="Move Right" disabled={!selectedRobotId}>
+=======
+          <div className={cn("md:w-5/12 flex flex-col", !selectedRobotId ? 'opacity-60 cursor-not-allowed' : '')}>
+            <div className={`grid grid-cols-3 grid-rows-4 gap-2 md:gap-3 w-full max-w-xs mx-auto p-3 md:p-4 bg-secondary/30 rounded-lg shadow-md flex-grow`}>
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('rotate-left')}
+                aria-label="Rotate Left"
+                disabled={!selectedRobotId}
+              >
+                <RotateCcw size={28} />
+              </Button>
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('forward')}
+                aria-label="Move Forward"
+                disabled={!selectedRobotId}
+              >
+                <ArrowUp size={28} />
+              </Button>
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('rotate-right')}
+                aria-label="Rotate Right"
+                disabled={!selectedRobotId}
+              >
+                <RotateCw size={28} />
+              </Button>
+
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('left')}
+                aria-label="Move Left"
+                disabled={!selectedRobotId}
+              >
+                <ArrowLeft size={28} />
+              </Button>
+              <Button
+                variant="destructive"
+                className={cn(directionalButtonBaseClasses)} 
+                onClick={() => handleControlClick('stop')}
+                aria-label="Stop"
+                disabled={!selectedRobotId}
+              >
+                <CircleDot size={28} />
+              </Button>
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('right')}
+                aria-label="Move Right"
+                disabled={!selectedRobotId}
+              >
+>>>>>>> 1de5aaa (Initial commit)
                 <ArrowRight size={28} />
               </Button>
 
               <div /> {/* Placeholder for bottom-left */}
+<<<<<<< HEAD
               <Button variant="outline" className="aspect-square h-auto" onClick={() => handleControlClick('backward')} aria-label="Move Backward" disabled={!selectedRobotId}>
                 <ArrowDown size={28} />
               </Button>
               <div /> {/* Placeholder for bottom-right */}
+=======
+              <Button
+                variant="outline"
+                className={cn(directionalButtonBaseClasses, lightModeDirectionalButtonColorClasses, darkModeDirectionalButtonColorClasses)}
+                onClick={() => handleControlClick('backward')}
+                aria-label="Move Backward"
+                disabled={!selectedRobotId}
+              >
+                <ArrowDown size={28} />
+              </Button>
+              <div /> {/* Placeholder for bottom-right */}
+              
+              {/* Emergency Stop Button - New Row */}
+              <Button
+                variant="destructive"
+                className={cn("col-span-3", directionalButtonBaseClasses, "py-2 md:py-3 mt-1")} 
+                onClick={() => handleControlClick('emergency-stop')}
+                aria-label="Emergency Stop"
+                disabled={!selectedRobotId}
+              >
+                <OctagonAlert className="mr-2 h-5 w-5 md:h-6 md:w-6" /> EMERGENCY STOP
+              </Button>
+>>>>>>> 1de5aaa (Initial commit)
             </div>
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Sliders Section */}
         <div className="pt-6 border-t">
           {/* Advanced Controls Panel (Sliders) */}
           <div className={`w-full p-4 bg-secondary/30 rounded-lg shadow-md space-y-6 ${!selectedRobotId ? 'opacity-60 cursor-not-allowed' : ''}`}>
+=======
+        {/* Sliders Section - Bottom Part */}
+        <div className={`pt-6 border-t ${!selectedRobotId ? 'opacity-60 cursor-not-allowed' : ''}`}>
+          {/* Advanced Controls Panel (Sliders) */}
+          <div className={`w-full p-4 bg-secondary/30 rounded-lg shadow-md space-y-6`}>
+>>>>>>> 1de5aaa (Initial commit)
             {/* Fork Height Controls */}
             <div>
               <div className="flex justify-between items-center mb-2">
@@ -248,6 +407,7 @@ export function RobotControllerCard() {
               </div>
             </div>
 
+<<<<<<< HEAD
             {/* Fork Extension Controls */}
             <div>
               <div className="flex justify-between items-center mb-2">
@@ -289,6 +449,8 @@ export function RobotControllerCard() {
                 </Button>
               </div>
             </div>
+=======
+>>>>>>> 1de5aaa (Initial commit)
           </div>
         </div>
       </CardContent>

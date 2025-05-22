@@ -1,7 +1,11 @@
 
 'use client';
 
+<<<<<<< HEAD
 import type { Task } from '@/types/fleet';
+=======
+import type { Task, Robot } from '@/types/fleet';
+>>>>>>> 1de5aaa (Initial commit)
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
@@ -10,7 +14,18 @@ import { ClipboardList, Loader2, CheckCircle, AlertTriangle, MinusCircle, PlusCi
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+<<<<<<< HEAD
 import { useTasks } from '@/context/TasksContext'; // Import useTasks
+=======
+
+const INITIAL_DISPLAY_COUNT = 5;
+
+interface AssignedTasksCardProps {
+  tasks: Task[]; // Expect filtered tasks
+  allRobots: Robot[]; // Full list of robots for name lookup
+  selectedWarehouseSection?: string; // For context in dialog if needed
+}
+>>>>>>> 1de5aaa (Initial commit)
 
 function getPriorityBadgeVariant(priority: Task['priority']): "default" | "secondary" | "destructive" | "outline" {
   switch (priority) {
@@ -31,6 +46,7 @@ function getStatusIcon(status: Task['status']) {
   }
 }
 
+<<<<<<< HEAD
 export function AssignedTasksCard() {
   const { tasks, robots } = useTasks(); // Get tasks and robots from context
   const initialDisplayCount = 5;
@@ -39,6 +55,15 @@ export function AssignedTasksCard() {
   const getAssignedToDisplay = (taskId?: string) => {
     if (!taskId) return 'Unassigned';
     const robot = robots.find(r => r.id === taskId);
+=======
+export function AssignedTasksCard({ tasks, allRobots, selectedWarehouseSection }: AssignedTasksCardProps) {
+  const displayedTasks = tasks.slice(0, INITIAL_DISPLAY_COUNT);
+  const showViewAllButton = tasks.length > INITIAL_DISPLAY_COUNT;
+
+  const getAssignedToDisplay = (taskId?: string) => {
+    if (!taskId) return 'Unassigned';
+    const robot = allRobots.find(r => r.id === taskId);
+>>>>>>> 1de5aaa (Initial commit)
     return robot ? robot.name : `ID: ${taskId}`;
   };
 
@@ -57,7 +82,11 @@ export function AssignedTasksCard() {
                 Add New Task
               </Link>
             </Button>
+<<<<<<< HEAD
             {tasks.length > initialDisplayCount && (
+=======
+            {showViewAllButton && (
+>>>>>>> 1de5aaa (Initial commit)
               <DialogTrigger asChild>
                 <Button variant="ghost" size="sm" className="text-xs w-full justify-start text-muted-foreground hover:text-accent-foreground">
                   View All Tasks
@@ -70,9 +99,16 @@ export function AssignedTasksCard() {
         <CardContent className="flex-grow overflow-hidden">
           <ScrollArea className="h-full pr-3">
             {tasks.length === 0 ? (
+<<<<<<< HEAD
               <p className="text-sm text-muted-foreground text-center py-4">No tasks assigned yet.</p>
             ) : (
               <ul className="space-y-3">
+=======
+              <p className="text-sm text-muted-foreground text-center py-4">No tasks in selected section.</p>
+            ) : (
+              <ul className="space-y-3">
+                {/* Display either initially sliced list or all if less than count */}
+>>>>>>> 1de5aaa (Initial commit)
                 {(displayedTasks.length > 0 ? displayedTasks : tasks).map((task) => ( 
                   <li key={task.id} className="p-3 bg-card border rounded-lg shadow-sm">
                     <div className="flex justify-between items-start mb-1">
@@ -100,12 +136,21 @@ export function AssignedTasksCard() {
       </Card>
       <DialogContent className="sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px]">
         <DialogHeader>
+<<<<<<< HEAD
           <DialogTitle className="text-xl text-primary">All Assigned Tasks</DialogTitle>
         </DialogHeader>
         <ScrollArea className="h-[60vh] md:h-[70vh] pr-4">
           <ul className="space-y-4 py-4">
             {tasks.length === 0 ? (
               <p className="text-sm text-muted-foreground text-center py-4">No tasks assigned.</p>
+=======
+          <DialogTitle className="text-xl text-primary">All Assigned Tasks (Filtered)</DialogTitle>
+        </DialogHeader>
+        <ScrollArea className="h-[60vh] md:h-[70vh] pr-4">
+          <ul className="space-y-4 py-4">
+            {tasks.length === 0 ? ( // This 'tasks' is the filtered list passed as prop
+              <p className="text-sm text-muted-foreground text-center py-4">No tasks in the selected section.</p>
+>>>>>>> 1de5aaa (Initial commit)
             ) : (
               tasks.map((task) => (
                 <li key={task.id} className="p-4 bg-card border rounded-lg shadow-sm">
